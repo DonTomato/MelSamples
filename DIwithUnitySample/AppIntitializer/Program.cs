@@ -17,33 +17,35 @@ using Surveys;
 using Surveys.Stores;
 namespace AppIntitializer
 {
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
-      Debug.Listeners.Add(tr1);
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
+			Debug.Listeners.Add(tr1);
 
-      using (var container = new UnityContainer())
-      {
-        Console.WriteLine("# Performing Registrations...");
-        ContainerBootstrapper.RegisterTypes(container);
-        Console.WriteLine("Container has {0} Registrations:",
-              container.Registrations.Count());
-        foreach (ContainerRegistration item in container.Registrations)
-        {
-          Console.WriteLine(item.GetMappingAsString());
-        }
-        Console.WriteLine();
-        Console.WriteLine("# Performing type resolutions...");
-        container.Resolve<ISurveyStore>().Initialize();
-        container.Resolve<ISurveyAnswerStore>().Initialize();
-        container.Resolve<ITenantStore>().Initialize();
+			using (var container = new UnityContainer())
+			{
+				Console.WriteLine("# Performing Registrations...");
+				ContainerBootstrapper.RegisterTypes(container);
+				Console.WriteLine("Container has {0} Registrations:", container.Registrations.Count());
 
-        Console.WriteLine("Done");
-        Console.ReadLine();
-      }
+				foreach (ContainerRegistration item in container.Registrations)
+				{
+					Console.WriteLine(item.GetMappingAsString());
+				}
 
-    }
-  }
+				Console.WriteLine();
+
+				Console.WriteLine("# Performing type resolutions...");
+				container.Resolve<ISurveyStore>().Initialize();
+				container.Resolve<ISurveyAnswerStore>().Initialize();
+				container.Resolve<ITenantStore>().Initialize();
+
+				Console.WriteLine("Done");
+				Console.ReadLine();
+			}
+
+		}
+	}
 }

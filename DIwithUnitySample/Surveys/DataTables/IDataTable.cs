@@ -14,17 +14,17 @@ using System.Linq;
 
 namespace Surveys.DataTables
 {
-  interface IDataTable<T>
-  {
-    IQueryable<T> Query { get; }
-    StorageAccount Account { get; }
+	interface IDataTable<T>
+	{
+		IQueryable<T> Query { get; }
+		StorageAccount Account { get; }
 
-    void EnsureExist();
-    void Add(T obj);
-    void Add(IEnumerable<T> objs);
-    void AddOrUpdate(T obj);
-    void AddOrUpdate(IEnumerable<T> objs);
-    void Delete(T obj);
-    void Delete(IEnumerable<T> objs);
-  }
+		void EnsureExist();
+		void Add(T obj);
+		void Add(IEnumerable<T> objs);
+		void AddOrUpdate(T obj);
+		void AddOrUpdate(IEnumerable<T> objs);
+		void Delete(T obj);
+		void Delete(IEnumerable<T> objs);
+	}
 }
