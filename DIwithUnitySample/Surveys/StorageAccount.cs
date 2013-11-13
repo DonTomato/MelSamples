@@ -1,0 +1,28 @@
+﻿//===============================================================================
+// Microsoft patterns & practices
+// Unity Application Block
+//===============================================================================
+// Copyright © Microsoft Corporation.  All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+// FITNESS FOR A PARTICULAR PURPOSE.
+//===============================================================================
+
+namespace Surveys
+{
+  class StorageAccount
+  {
+    private readonly string connectionString;
+
+    public StorageAccount(string connectionString)
+    {
+      this.connectionString = connectionString;
+    }
+
+    public string ConnectionString
+    {
+      get { return this.connectionString; }
+    }
+  }
+}
