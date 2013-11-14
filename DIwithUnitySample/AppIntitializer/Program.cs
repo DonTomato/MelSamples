@@ -36,11 +36,12 @@ namespace AppIntitializer
 				}
 
 				Console.WriteLine();
+				Console.ReadLine();
 
 				Console.WriteLine("# Performing type resolutions...");
 				container.Resolve<ISurveyStore>().Initialize();
-				container.Resolve<ISurveyAnswerStore>().Initialize();
-				container.Resolve<ITenantStore>().Initialize();
+				//container.Resolve<ISurveyAnswerStore>().Initialize();
+				//container.Resolve<ITenantStore>().Initialize();
 
 				Console.WriteLine("Done");
 				Console.ReadLine();

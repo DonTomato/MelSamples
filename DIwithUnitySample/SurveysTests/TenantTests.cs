@@ -18,21 +18,20 @@ using Surveys.Stores;
 
 namespace SurveysTests
 {
-  [TestClass]
-  public class TenantTests
-  {
-    [TestMethod]
-    public void GetTenantReturnsTenantFromBlobStorage()
-    {
-      var mockTenantBlobContainer = new Mock<IBlobContainer<Tenant>>();
-      var store = new TenantStore(mockTenantBlobContainer.Object, null);
-      var tenant = new Tenant();
-      mockTenantBlobContainer.Setup(c => c.Get("tenant")).Returns(tenant);
+	[TestClass]
+	public class TenantTests
+	{
+		[TestMethod]
+		public void GetTenantReturnsTenantFromBlobStorage()
+		{
+			var mockTenantBlobContainer = new Mock<IBlobContainer<Tenant>>();
+			var store = new TenantStore(mockTenantBlobContainer.Object, null);
+			var tenant = new Tenant();
+			mockTenantBlobContainer.Setup(c => c.Get("tenant")).Returns(tenant);
 
-      var actualTenant = store.GetTenant("tenant");
+			var actualTenant = store.GetTenant("tenant");
 
-      Assert.AreSame(tenant, actualTenant);
-    }
-
-  }
+			Assert.AreSame(tenant, actualTenant);
+		}
+	}
 }
